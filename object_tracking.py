@@ -11,19 +11,14 @@ tracker = cv2.TrackerCSRT_create()
 returned, img = video.read()
 
 # Select the bounding box on the image
-bbox = cv2.selectROI("Tracking", img, False)
 
 # Initialise the tracker on the img and the bounding box
-tracker.init(img, bbox)
+
 
 print(bbox)
 
 def drawBox(img, bbox):
-    x, y, w, h = int(bbox[0]), int(bbox[1]), int(bbox[2]), int(bbox[3])
-
-    cv2.rectangle(img,(x,y),((x+w),(y+h)),(255,0,255),3,1)
-
-    cv2.putText(img,"Tracking",(75,90),cv2.FONT_HERSHEY_SIMPLEX,0.7,(0,255,0),2)
+    
 
 def goal_track(img, bbox):
     x, y,w, h = int(bbox[0]),int(bbox[1]),int(bbox[2]),int(bbox[3])
